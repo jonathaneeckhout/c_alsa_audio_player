@@ -1,0 +1,6 @@
+*.config
+*.creator
+*.files
+*.includes
+audio_player
+*.o
