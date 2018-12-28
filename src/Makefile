@@ -1,16 +1,16 @@
 IDIR =../include
 CC=gcc
-CFLAGS=-I$(IDIR)
+CFLAGS=-I$(IDIR) -I../../minimp3 -Wall -Werror
 
 ODIR=obj
 LDIR =../lib
 
-LIBS=-lasound
+LIBS=-lm -lasound
 
 _DEPS = main.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o
+_OBJ = main.o myminimp3.o pcm.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
@@ -19,6 +19,8 @@ $(ODIR)/%.o: %.c $(DEPS)
 
 audio_player: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+all: audio_player
 
 .PHONY: clean
 

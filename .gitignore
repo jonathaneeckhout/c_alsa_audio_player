@@ -2,5 +2,8 @@
 *.creator
 *.files
 *.includes
+*.user
 audio_player
 *.o
+*.mp3
+*.wav
